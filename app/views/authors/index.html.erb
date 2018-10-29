@@ -1,0 +1,7 @@
+<h1>Author Overview</h1>
+<% @authors.each do |author| %>
+	<h3> <%= author.name %> </h3>
+	<p> <%= author.homepage %> </p>
+<% end %>
+
+<%= link_to 'New', new_author_path %>
