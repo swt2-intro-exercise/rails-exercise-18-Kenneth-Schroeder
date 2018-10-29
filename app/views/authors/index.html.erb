@@ -1,7 +1,19 @@
 <h1>Author Overview</h1>
-<% @authors.each do |author| %>
-	<h3> <%= author.name %> </h3>
-	<p> <%= author.homepage %> </p>
-<% end %>
 
-<%= link_to 'New', new_author_path %>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Homepage</th>
+    <th></th>
+  </tr>
+ 
+  <% @authors.each do |author| %>
+    <tr>
+      <td><%= author.name %></td>
+      <td><%= author.homepage %></td>
+      <td><%= link_to 'Show', author_path(author) %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'New Author', new_author_path %>
