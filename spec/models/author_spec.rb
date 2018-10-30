@@ -12,4 +12,9 @@ describe "Authors Model Tests", type: :model do #or :type => :model
   	@author = Author.new(first_name: 'Alan', last_name: '', homepage: 'aHomepage')
   	expect(@author).to_not be_valid
   end
+
+  it "should have a list of papers" do
+    @author = Author.new(first_name: 'Alan', last_name: '', homepage: 'aHomepage')
+    expect(@author.papers).to be_empty
+  end
 end
