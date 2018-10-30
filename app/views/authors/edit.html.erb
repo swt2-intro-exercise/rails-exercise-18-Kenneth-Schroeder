@@ -1,0 +1,28 @@
+<h1>Authors#edit</h1>
+<p>Find me in app/views/authors/edit.html.erb</p>
+
+<%= form_with scope: :author, url: author_path(@author), method: :patch, local: true do |form| %>
+  <% if @author.errors.any? %>
+  	<% @author.errors.full_messages.each do |error| %>
+  		<p> Error: <%= error %> </p>
+  	<% end %>
+  <% end %>
+  <p>
+    <%= form.label :first_name, "First Name: " %><br>
+    <%= form.text_field :first_name %>
+  </p>
+ 
+  <p>
+    <%= form.label :last_name, "Last Name: " %><br>
+    <%= form.text_area :last_name %>
+  </p>
+
+  <p>
+    <%= form.label :homepage, "Homepage: " %><br>
+    <%= form.text_area :homepage %>
+  </p>
+ 
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
