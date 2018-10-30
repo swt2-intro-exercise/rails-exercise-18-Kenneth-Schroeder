@@ -2,6 +2,11 @@
 <p>Find me in app/views/authors/new.html.erb</p>
 
 <%= form_with scope: :author, url: authors_path, local: true do |form| %>
+  <% if @author.errors.any? %>
+  	<% @author.errors.full_messages.each do |error| %>
+  		<p> Error: <%= error %> </p>
+  	<% end %>
+  <% end %>
   <p>
     <%= form.label :first_name, "First Name: " %><br>
     <%= form.text_field :first_name %>

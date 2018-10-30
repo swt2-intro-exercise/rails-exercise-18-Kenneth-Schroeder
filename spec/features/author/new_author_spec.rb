@@ -18,9 +18,17 @@ describe "New author page", type: :feature do
   it "should save the author to the database" do
   	visit new_author_path
   	page.fill_in 'author[first_name]', with: 'Alan'
-	page.fill_in 'author[last_name]', with: 'Turing'
-	page.fill_in 'author[homepage]', with: 'http://wikipedia.org/Alan_Turing'
-	find('input[type="submit"]').click
+	  page.fill_in 'author[last_name]', with: 'Turing'
+	  page.fill_in 'author[homepage]', with: 'http://wikipedia.org/Alan_Turing'
+	  find('input[type="submit"]').click
+  end
+
+  it "should display an error, when the input was invalid" do
+    visit new_author_path
+    page.fill_in 'author[first_name]', with: 'Alan'
+    page.fill_in 'author[homepage]', with: 'http://wikipedia.org/Alan_Turing'
+    find('input[type="submit"]').click
+    expect(page).to have_text('Error')
   end
 
 end
