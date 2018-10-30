@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :papers
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rails routes".
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -8,6 +9,7 @@ Rails.application.routes.draw do
   root 'home#index'
 
   resources :authors
+  resources :papers
   #get 'authors/new'
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
