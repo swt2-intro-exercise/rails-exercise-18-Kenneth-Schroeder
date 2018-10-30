@@ -19,6 +19,12 @@ describe "Authors index (overview) page", type: :feature do
     expect(page).to have_link 'Edit', href: edit_author_path(@alan)
   end
 
+  it "should have links to delete authors" do
+    @alan = FactoryBot.create :author
+    visit authors_path
+    expect(page).to have_link 'Delete'
+  end
+
   it "should have a table" do
   	visit authors_path
   	expect(page).to have_table
