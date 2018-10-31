@@ -4,6 +4,16 @@ class PapersController < ApplicationController
   # GET /papers
   def index
     @papers = Paper.all
+    #@papers = @papers.created_in(params[:year]) if params[:year].present?
+    
+    @papers = @papers.created_in(params[:year]) if params[:year].present?
+
+    #@articles = Article.all
+    #@articles = @articles.title if params[:title].present? 
+  #  if Paper.created_in(params[:year])
+  #    @papers = Paper.created_in(params[:year])
+  #  else
+  #    @papers = Paper.all
   end
 
   # GET /papers/1

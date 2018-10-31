@@ -4,4 +4,5 @@ class Paper < ApplicationRecord
 	validates :venue, presence: true
 	validates :year, presence: true
 	validates :year, numericality: true
+	scope :created_in, ->(year) { where("year = ?", year) } 
 end
